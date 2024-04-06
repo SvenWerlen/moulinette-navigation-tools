@@ -1,0 +1,13 @@
+---
+uuid: ASSETUUID
+type: item
+quantity: ITEMQUANTITY
+weight: ITEMWEIGHT
+price: ITEMPRICE ITEMCURRENCY
+---
+
+## ASSETNAME
+
+ASSETIMG
+
+<div>ASSETCONTENT</div>

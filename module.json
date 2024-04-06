@@ -1,0 +1,42 @@
+{
+  "title": "Moulinette Navigation Tools",
+  "description": "Moulinette Utilities to improve navigation",
+  "version": "11.0.0",
+  "esmodules": [
+    "moulinette-navigation.js"
+  ],
+  "styles": [
+    "moulinette-navigation.css"
+  ],
+  "url": "https://github.com/SvenWerlen/moulinette-navigation-tools",
+  "download": "https://github.com/SvenWerlen/moulinette-navigation-tools/archive/v-11.0.0.zip",
+  "manifest": "https://raw.githubusercontent.com/SvenWerlen/moulinette-navigation-tools/main/module.json",
+  "id": "moulinette-navigation-tools",
+  "authors": [
+    {
+      "name": "Sven Werlen",
+      "flags": {}
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json",
+      "flags": {}
+    }
+  ],
+  "relationships": {
+    "requires": []
+  },
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  }
+}

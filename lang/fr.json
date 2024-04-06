@@ -1,0 +1,7 @@
+{
+  "mtte.configHideEmptyFolders": "Masquer les répertoires vides",
+  "mtte.configHideEmptyFoldersHint": "Lorsque coché, Moulinette n'affichera pas les répertoires qui ne contiennent pas de scènes",
+  "mtte.export2obsidian": "Exporter vers Obsidian",
+  "mtte.navigation": "Afficher dans la navigation",
+  "mtte.obsidianExporterDescription": "Cet utilitaire vous permet d'exporter le monde actuel au format Obsidian. Choisissez ci-dessous quels documents vous souhaitez exporter et les permissions à respecter."
+}

@@ -1,0 +1,59 @@
+#nav-moulinette-toggle {
+  height: 34px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 32px;
+  padding: 0 8px;
+  margin: 12px 8px 8px 0;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  pointer-events: all;
+  max-height: 100%;
+  color: var(--color-text-light-highlight);
+  z-index: var(--z-index-app);
+  transform-origin: top left;
+  display: inline-block;
+  position: absolute;
+}
+
+#mouNav {
+  display: none;
+  position: absolute;
+  top: 50px;
+  background: #130027;
+  border: 1px solid #3a00ae;
+  color: #fff;
+  padding: 8px 8px 8px 20px;
+  list-style: none;
+  --icon-size: .8em;
+  --gutter: .5em;
+  pointer-events: auto;
+}
+
+#mouNav li::marker {
+  content: "\f07c"; /* FontAwesome Unicode */
+}
+
+#mouNav li {
+  padding-left: var(--gutter);
+}
+
+#mouNav li::marker {
+  font-family: FontAwesome;
+  font-size: var(--icon-size);
+}
+
+#mouNav ul.folders li::marker {
+  content: "\f07c";
+}
+
+#mouNav ul.scenes li::marker {
+  content: "\f279";
+}
+
+#mouNav ul {
+  list-style: none;
+  padding-left: 15px;
+}

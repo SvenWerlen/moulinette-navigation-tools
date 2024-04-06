@@ -1,0 +1,11 @@
+---
+uuid: ASSETUUID
+type: actor
+hp: ACTORHPCUR / ACTORHPMAX
+---
+
+## ASSETNAME
+
+ASSETIMG
+
+<div>ASSETCONTENT</div>
