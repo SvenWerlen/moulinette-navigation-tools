@@ -30,6 +30,8 @@
   --icon-size: .8em;
   --gutter: .5em;
   pointer-events: auto;
+  overflow-y: scroll;
+  max-height: calc(100% - 150px);
 }
 
 #mouNav li::marker {
@@ -38,6 +40,10 @@
 
 #mouNav li {
   padding-left: var(--gutter);
+}
+
+#mouNav li .sub {
+  padding-left: 5px;
 }
 
 #mouNav li::marker {

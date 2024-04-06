@@ -41,9 +41,32 @@ class MoulinetteNavigationTools {
       if(folder.sorting == "a") sortedScenes.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
       else if(folder.sorting == "m") sortedScenes.sort((a,b) => a.sort-b.sort)
       
-      for(const sc of sortedScenes) {
-        html += `<li><a class="mouNavScene" href="" data-id="${sc.id}">${sc.name}</a></li>`
-      }
+      // merge scenes based on regex
+      var sceneMap = new Map();
+      let rx = /(\d+)$/g;
+      sortedScenes.forEach((sc) => {
+        const match = sc.name.match(rx)
+        let base = sc.name
+        let name = sc.name
+        if(match) {
+          base = sc.name.substring(0, sc.name.length - match.length - 1).trim()
+          name = match
+        } 
+        if(!sceneMap.has(base)) {
+          sceneMap.set(base, [])
+        }
+        sceneMap.get(base).push({ id: sc._id, name: name})
+      });
+
+      sceneMap.forEach((scenes,key) => {
+        if(scenes.length ==  1) {
+          html += `<li><a class="mouNavScene" href="" data-id="${scenes[0]._id}">${scenes[0].name}</a></li>`
+        } else {
+          html += `<li> ${key}`
+          scenes.forEach((sc) => html += ` <a class="mouNavScene sub" href="" data-id="${sc.id}">${sc.name}</a>` )
+          html += "</li>"
+        }
+      })
       html += "</ul>"
     }
     
