@@ -12,6 +12,11 @@ This module provides an alternative view for navigating among scenes. The module
 
 ![Overview](docs/overview-annotated.jpg)
 
+**Main advantages**
+
+* Having a quick and comprehensive view of all scenes in a folder
+* Create a navigation view for a specific folder or subfolder
+* Facilitate navigation for game masters by reducing the number of clicks required :
 
 | Default behaviour | Moulinette Navigation |
 | ----     | ----     |
