@@ -4,19 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [11.1.1] - 2024-03-19
-### Fixed
-- 11.1.1:  Error: foundry.js:68326 You are attempting to upload a file with a disallowed file extension. #1 
+## [11.0.0] - 2024-04-07
 ### Added
-- User Interface (from Game Settings)
-- Progressbar
-- Export based on permissions
-- Last settings stored
+- Alternate navigation (based on 1 specific folder)
+- Configurations (flatten folders, ignore empty folders, merge folders)
+- Keybind for navigation toggle
 
-## [11.0.1] - 2024-02-11
-### Added
-- Export Scenes
-- Export Actors
-- Export Notes
-- Export Items
-- Export Rollable Tables
