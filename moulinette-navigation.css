@@ -36,6 +36,8 @@
   pointer-events: auto;
   overflow-y: scroll;
   max-height: calc(100% - 150px);
+  min-height: 40px;
+  min-width: 40px;
 }
 
 #mouNav .actions {

@@ -8,6 +8,71 @@
 
 See [www.moulinette.cloud](https://www.moulinette.cloud) website.
 
+This module provides an alternative view for navigating among scenes. The module is particularly useful if your campaign or adventure consists of many scenes organized in folders. By default, you need to click to open each folder and subfolder, and then two clicks are required to display or activate a scene. With this module, all scenes are presented, and you can switch from one scene to another with a single click.
+
+![Overview](docs/overview-annotated.jpg)
+
+
+| Default behaviour | Moulinette Navigation |
+| ----     | ----     |
+| Click on "Scenes" tab<br>Expand folder (Gor Todur)<br>Expand folder (The Anvil Quarter)<br>Right click on scene<br> Select "View scene"<br>**5 clicks**   | Toggle navigation<br>Click on scene<br>**2 clicks**  |
+
+## <a name="use"/>How to use it
+
+To "fill" Moulinette navigation, you simply need to select the folder you want to display. Right-click on it and then select "Show in navigation (moulinette)"
+
+![Select folder](docs/select-folder.jpg)
+
+Then, click on the button "..." at the top left in the navigation bar to show or hide the list of scenes.
+In the list, click on a scene to display it, and hold down the "SHIFT" button to activate it.
+
+![List scenes and toggle navigation](docs/toggle-navigation.jpg)
+
+## <a name="configurations"/>Configurations
+
+### Hide empty folders
+
+This configuration automatically hides all directories that do not contain scenes.
+
+![FoundryVTT scenes | Show empty folders | Hide empty folders](docs/show-hide-empty-folders.jpg)
+
+### Flatten the folder structure
+
+When this option is enabled and a folder contains only one scene, Moulinette will not display the folder but only the scene to avoid cluttering the tree structure.
+
+![FoundryVTT scenes | Default folder structure | Flatten folder structure](docs/flatten-folder-structure.jpg)
+
+### Combine scenes (regex)
+
+This configuration allows merging scenes based on their name. It's a regular expression representing the pattern used at the end of the scene names. 
+
+![FoundryVTT scenes | Default folder structure | Merged folders](docs/merged-folders.jpg)
+
+The configuration uses a regular expression to identify the pattern to recognize and the part to extract during merging.
+
+Here are some concrete examples:
+
+#### Pattern #1 : use of parentheses (default)
+
+If you name your scenes like this : 
+* My Scene (GF)
+* My Scene (1F)
+* My Scene (2F)
+* ...
+
+You can then use the following regex to extract the part in parentheses: ```\((.+)\)```
+_(Parentheses characters must be escaped `\(` and `\)`)_
+
+#### Pattern #2 : use of '-' character
+
+If you name your scenes like this : 
+* My Scene - GF
+* My Scene - 1F
+* My Scene - 2F
+* ...
+
+You can then use the following regex to extract the part after the `-` character: ``` - (.+)```
+_(You can replace `-` by any other character. Don't forget to escape it if it's a regex character)_
 
 
 ## <a name="install"/>Install the module
@@ -25,7 +90,7 @@ To **manually install** the module (not recommended), follow these instructions:
 
 If you like my work and want to support me, consider subscribing to Moulinette!
 
-* Recommended: [Moulinette on Stripe](https://assets.moulinette.cloud/pricing) (requires Patreon authentication)
+* Preferred: [Moulinette on Stripe](https://assets.moulinette.cloud/pricing) (requires Patreon authentication)
 * Or: [Moulinette on Patreon](https://www.patreon.com/moulinette)
 
 You can also join [Moulinette Discord](https://discord.gg/xg3dcMQfP2)

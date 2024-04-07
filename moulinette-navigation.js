@@ -3,7 +3,7 @@ class MoulinetteNavigationTools {
   /**
    * Returns a HTML representing all the scenes
    */
-  static getNavigationAsHTML(folder, hideEmpyFolders, flattenStructure) {
+  static getNavigationAsHTML(folder, hideEmpyFolders, flattenStructure, mergeRegex) {
     if(!folder) {
       return ""
     }
@@ -20,7 +20,7 @@ class MoulinetteNavigationTools {
 
       sortedFolders.forEach((c) => {
         if(c.folder) {
-          const html = MoulinetteNavigationTools.getNavigationAsHTML(c.folder, hideEmpyFolders, flattenStructure)         
+          const html = MoulinetteNavigationTools.getNavigationAsHTML(c.folder, hideEmpyFolders, flattenStructure, mergeRegex)         
           if(html) folders.push(html)
         }
       })
@@ -33,14 +33,13 @@ class MoulinetteNavigationTools {
       else if(folder.sorting == "m") sortedScenes.sort((a,b) => a.sort-b.sort)
       
       // merge scenes based on regex
-      let rx = /(N\-?\d+)$/g;
       sortedScenes.forEach((sc) => {
-        const match = sc.name.match(rx)
+        const match = mergeRegex ? sc.name.match(new RegExp(`${mergeRegex}$`)) : null
         let base = sc.name
         let name = sc.name
         if(match) {
           base = sc.name.substring(0, sc.name.length - match[0].length).trim()
-          name = match[0]
+          name = match.length > 1 ? match[1] : match[0]
         } 
         if(!sceneMap.has(base)) {
           sceneMap.set(base, [])
@@ -80,11 +79,17 @@ class MoulinetteNavigationTools {
   static updateMoulinetteNavigation() {
     if($("#mouNav").is(":hidden")) return // no update required
 
+    let regex = game.settings.get("moulinette-navigation-tools", "mergeRegex")
+    if(regex) {
+      regex = regex.length == 0 ? null : regex
+    }
+    
     // update navigation & events
     const html = MoulinetteNavigationTools.getNavigationAsHTML(
       game.moulinette.navigationtools, 
       game.settings.get("moulinette-navigation-tools", "hideEmpyFolders"),
       game.settings.get("moulinette-navigation-tools", "flattenStructure"),
+      regex,
     )
     $("#mouNav").html(`${html}<div class="actions"><a href="" class="help"><i class="fa-solid fa-circle-question"></i></a></div>`)
     $("#mouNav .mouNavScene").click((ev) => {
@@ -102,7 +107,11 @@ class MoulinetteNavigationTools {
     $("#mouNav .help").click((ev) => {
       ev.preventDefault();
       ev.stopPropagation();
-      console.log("SHOW HELP")
+      (new Dialog({ 
+        title: game.i18n.localize("mtte.navigationToolsHelp"),
+        content: game.i18n.localize("mtte.navigationToolsHelpContent"),
+        buttons: {}
+      })).render(true);
     })
   }
 }
@@ -131,7 +140,30 @@ Hooks.once("init", async function () {
     type: Boolean
   });
 
+  game.settings.register("moulinette-navigation-tools", "mergeRegex", {
+    name: game.i18n.localize("mtte.configSceneMergeRegex"),
+    hint: game.i18n.localize("mtte.configSceneMergeRegexHint"),
+    scope: "world",
+    config: true,
+    default: `\\((.+)\\)`,
+    type: String
+  });
+
   game.settings.register("moulinette-navigation-tools", "currentFolder", { scope: "world", config: false, type: String, default: null })
+
+  game.keybindings.register("moulinette-navigation-tools", "toggleNavigation", {
+    name: game.i18n.localize("mtte.configToggleNavigation"),
+    hint: game.i18n.localize("mtte.configToggleNavigationHint"),
+    editable: [],
+    onDown: () => {
+      $("#mouNav").toggle()
+      MoulinetteNavigationTools.updateMoulinetteNavigation() 
+    },
+    onUp: () => {},
+    restricted: true,  // Restrict this Keybinding to gamemaster only?
+    reservedModifiers: [],
+    precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
+  })
 });
 
 Hooks.once("ready", async function() { 

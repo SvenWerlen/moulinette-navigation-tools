@@ -3,7 +3,13 @@
   "mtte.configFlattenStructureHint": "Lorsque cette option est activée et qu'un répertoire ne contient qu'une scène, Moulinette n'affichera pas le répertoire mais uniquement la scène pour ne pas alourdir l'arborescence.",
   "mtte.configHideEmptyFolders": "Masquer les répertoires vides",
   "mtte.configHideEmptyFoldersHint": "Lorsque coché, Moulinette n'affichera pas les répertoires qui ne contiennent pas de scènes",
+  "mtte.configSceneMergeRegex": "Combiner des scènes - expression régulière",
+  "mtte.configSceneMergeRegexHint": "Cette configuration permet de fusionner les scènes sur la base du nom. Il s'agit d'une expression régulière représentant le modèle utilisé à la fin du nom des scènes. Veuillez consulter la documentation pour plus de détails.",
+  "mtte.configToggleNavigation": "Masquer/afficher Navigation",
+  "mtte.configToggleNavigationHint": "Masque ou affiche la navigation Moulinette",
   "mtte.export2obsidian": "Exporter vers Obsidian",
   "mtte.navigation": "Afficher dans la navigation",
+  "mtte.navigationToolsHelp": "À propos de la navigation Moulinette",
+  "mtte.navigationToolsHelpContent": "La navigation liste toutes les scènes du répertoire sélectionné. <ul><li>Cliquer pour naviguer vers la scène.</li><li>SHIFT + clic pour activer la scène la scène.</li><li>Vous pouvez définir un raccourci pour afficher/masquer rapidement la navigation (Configure Controls).</li></ul>Voir <a href=\"https://github.com/SvenWerlen/moulinette-navigation-tools\">Documentation</a> pour plus de détails.",
   "mtte.obsidianExporterDescription": "Cet utilitaire vous permet d'exporter le monde actuel au format Obsidian. Choisissez ci-dessous quels documents vous souhaitez exporter et les permissions à respecter."
 }
