@@ -1,4 +1,6 @@
 {
+  "mtte.configFlattenStructure": "Flatten the folder structure",
+  "mtte.configFlattenStructureHint": "When this option is enabled and a folder contains only one scene, Moulinette will not display the folder but only the scene to avoid cluttering the tree structure.",
   "mtte.configHideEmptyFolders": "Hide empty folders",
   "mtte.configHideEmptyFoldersHint": "When checked, Moulinette will not display folders that do not contain scenes",
   "mtte.export2obsidian": "Export to Obsidian",

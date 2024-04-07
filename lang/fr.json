@@ -1,4 +1,6 @@
 {
+  "mtte.configFlattenStructure": "Applatir la structure des répertoires",
+  "mtte.configFlattenStructureHint": "Lorsque cette option est activée et qu'un répertoire ne contient qu'une scène, Moulinette n'affichera pas le répertoire mais uniquement la scène pour ne pas alourdir l'arborescence.",
   "mtte.configHideEmptyFolders": "Masquer les répertoires vides",
   "mtte.configHideEmptyFoldersHint": "Lorsque coché, Moulinette n'affichera pas les répertoires qui ne contiennent pas de scènes",
   "mtte.export2obsidian": "Exporter vers Obsidian",

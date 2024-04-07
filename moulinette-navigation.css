@@ -1,3 +1,7 @@
+#navigation {
+  margin-left: 38px;
+}
+
 #nav-moulinette-toggle {
   height: 34px;
   background: rgba(0, 0, 0, 0.5);
@@ -34,6 +38,13 @@
   max-height: calc(100% - 150px);
 }
 
+#mouNav .actions {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: large;
+}
+
 #mouNav li::marker {
   content: "\f07c"; /* FontAwesome Unicode */
 }
@@ -49,6 +60,18 @@
 #mouNav li::marker {
   font-family: FontAwesome;
   font-size: var(--icon-size);
+}
+
+#mouNav li.flat {
+  padding-left: 0;
+}
+
+#mouNav li.flat::marker {
+  content: none !important;
+}
+
+#mouNav ul.flat {
+  padding-left: 0px;
 }
 
 #mouNav ul.folders li::marker {
