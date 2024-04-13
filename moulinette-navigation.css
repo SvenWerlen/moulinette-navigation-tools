@@ -24,10 +24,10 @@
 
 #mouNav {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50px;
   background: #130027;
-  border: 1px solid #3a00ae;
+  border: 1px solid var(--color-border-dark);;
   color: #fff;
   padding: 8px 8px 8px 20px;
   list-style: none;
@@ -41,10 +41,18 @@
 }
 
 #mouNav .actions {
-  position: absolute;
-  top: 10px;
-  right: 5px;
+  position: relative;
+  display: flex;
   font-size: large;
+  width: 100%;
+}
+
+#mouNav .actions .fontInc {
+  flex-grow: 1;
+}
+
+#mouNav .actions a {
+  margin-left: 5px;
 }
 
 #mouNav li::marker {

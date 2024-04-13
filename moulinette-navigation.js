@@ -79,6 +79,11 @@ class MoulinetteNavigationTools {
   static updateMoulinetteNavigation() {
     if($("#mouNav").is(":hidden")) return // no update required
 
+    // update colors
+    $("#mouNav").css({'color': game.settings.get("moulinette-navigation-tools", "text-color")});
+    $("#mouNav").css({'background-color': game.settings.get("moulinette-navigation-tools", "background-color")});
+    $("#mouNav a[href]").css({'color': game.settings.get("moulinette-navigation-tools", "href-color")});
+    
     let regex = game.settings.get("moulinette-navigation-tools", "mergeRegex")
     if(regex) {
       regex = regex.length == 0 ? null : regex
@@ -91,7 +96,10 @@ class MoulinetteNavigationTools {
       game.settings.get("moulinette-navigation-tools", "flattenStructure"),
       regex,
     )
-    $("#mouNav").html(`${html}<div class="actions"><a href="" class="help"><i class="fa-solid fa-circle-question"></i></a></div>`)
+    $("#mouNav").html(`<div class="actions"><a href="" class="fontDec"><i class="fa-solid fa-font fa-2xs"></i></a>` +
+      `<a href="" class="fontInc"><i class="fa-solid fa-font"></i></a>` +
+      `<a href="" class="config"><i class="fa-solid fa-gears"></i>` +
+      `<a href="" class="help"><i class="fa-solid fa-circle-question"></i></a></div>${html}`)
     $("#mouNav .mouNavScene").click((ev) => {
       ev.preventDefault();
       ev.stopPropagation();
@@ -103,6 +111,25 @@ class MoulinetteNavigationTools {
       } else {
         scene.view();
       }
+    })
+    $("#mouNav .fontDec").click((ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const fontSize = Math.max(10, parseInt($("#mouNav").css("font-size")) - 1)
+      $("#mouNav").css({'font-size': `${fontSize}px`});
+      game.settings.set("moulinette-navigation-tools", "fontSize", fontSize)
+    })
+    $("#mouNav .fontInc").click((ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const fontSize = Math.min(64, parseInt($("#mouNav").css("font-size")) + 1)
+      $("#mouNav").css({'font-size': `${fontSize}px`});
+      game.settings.set("moulinette-navigation-tools", "fontSize", fontSize)
+    })
+    $("#mouNav .config").click((ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      game.settings.sheet.render(true, { activeCategory: "moulinette-navigation-tools"});
     })
     $("#mouNav .help").click((ev) => {
       ev.preventDefault();
@@ -150,6 +177,7 @@ Hooks.once("init", async function () {
   });
 
   game.settings.register("moulinette-navigation-tools", "currentFolder", { scope: "world", config: false, type: String, default: null })
+  game.settings.register("moulinette-navigation-tools", "fontSize", { scope: "world", config: false, type: Number, default: null })
 
   game.keybindings.register("moulinette-navigation-tools", "toggleNavigation", {
     name: game.i18n.localize("mtte.configToggleNavigation"),
@@ -164,6 +192,75 @@ Hooks.once("init", async function () {
     reservedModifiers: [],
     precedence: CONST.KEYBINDING_PRECEDENCE.NORMAL
   })
+
+  ColorPicker.register(
+    'moulinette-navigation-tools',
+    'text-color', 
+    {
+      name: game.i18n.localize("mtte.configTextColor"),
+      hint: game.i18n.localize("mtte.configTextColorHint"),
+      scope: 'world',
+      config: true,
+      default: "#FFFFFF",
+      onChange: function(color) {
+        $("#mouNav").css({'color': color});
+      }
+    },
+    {
+      format: 'hexa',
+      alphaChannel: true,
+      onChange: function() {
+        const color = this.toString()
+        $("#mouNav").css({'color': color});
+      }
+    }
+  )
+
+  ColorPicker.register(
+    'moulinette-navigation-tools',
+    'href-color', 
+    {
+      name: game.i18n.localize("mtte.configLinkColor"),
+      hint: game.i18n.localize("mtte.configLinkColorHint"),
+      scope: 'world',
+      config: true,
+      default: "##ff6400",
+      onChange: function(color) {
+        $("#mouNav a[href]").css({'color': color});
+      }
+    },
+    {
+      format: 'hexa',
+      alphaChannel: true,
+      onChange: function() {
+        const color = this.toString()
+        $("#mouNav a[href]").css({'color': color});
+      }
+    }
+  )
+
+  ColorPicker.register(
+    'moulinette-navigation-tools',
+    'background-color', 
+    {
+      name: game.i18n.localize("mtte.configBackgroundColor"),
+      hint: game.i18n.localize("mtte.configBackgroundColorHint"),
+      scope: 'world',
+      config: true,
+      default: "#130027",
+      onChange: function(color) {
+        $("#mouNav").css({'background-color': color});
+      }
+    },
+    {
+      format: 'hexa',
+      alphaChannel: true,
+      onChange: function() {
+        const color = this.toString()
+        $("#mouNav").css({'background-color': color});
+      }
+    }
+  )
 });
 
 Hooks.once("ready", async function() { 
@@ -177,6 +274,10 @@ Hooks.once("ready", async function() {
     const folder = game.folders.get(game.settings.get("moulinette-navigation-tools", "currentFolder"))
     if(folder) {
       game.moulinette.navigationtools = folder
+    }
+    const fontSize = game.settings.get("moulinette-navigation-tools", "fontSize")
+    if(fontSize && fontSize >= 10) {
+      $("#mouNav").css({'font-size': `${fontSize}px`});
     }
   }
 });
