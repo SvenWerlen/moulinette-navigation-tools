@@ -79,11 +79,6 @@ class MoulinetteNavigationTools {
   static updateMoulinetteNavigation() {
     if($("#mouNav").is(":hidden")) return // no update required
 
-    // update colors
-    $("#mouNav").css({'color': game.settings.get("moulinette-navigation-tools", "text-color")});
-    $("#mouNav").css({'background-color': game.settings.get("moulinette-navigation-tools", "background-color")});
-    $("#mouNav a[href]").css({'color': game.settings.get("moulinette-navigation-tools", "href-color")});
-    
     let regex = game.settings.get("moulinette-navigation-tools", "mergeRegex")
     if(regex) {
       regex = regex.length == 0 ? null : regex
@@ -100,6 +95,12 @@ class MoulinetteNavigationTools {
       `<a href="" class="fontInc"><i class="fa-solid fa-font"></i></a>` +
       `<a href="" class="config"><i class="fa-solid fa-gears"></i>` +
       `<a href="" class="help"><i class="fa-solid fa-circle-question"></i></a></div>${html}`)
+    
+    // update colors
+    $("#mouNav").css({'color': game.settings.get("moulinette-navigation-tools", "text-color")});
+    $("#mouNav").css({'background-color': game.settings.get("moulinette-navigation-tools", "background-color")});
+    $("#mouNav a[href]").css({'color': game.settings.get("moulinette-navigation-tools", "href-color")});
+
     $("#mouNav .mouNavScene").click((ev) => {
       ev.preventDefault();
       ev.stopPropagation();
@@ -224,7 +225,7 @@ Hooks.once("init", async function () {
       hint: game.i18n.localize("mtte.configLinkColorHint"),
       scope: 'world',
       config: true,
-      default: "##ff6400",
+      default: "#ff6400",
       onChange: function(color) {
         $("#mouNav a[href]").css({'color': color});
       }
