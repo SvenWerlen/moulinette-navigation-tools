@@ -265,6 +265,8 @@ Hooks.once("init", async function () {
 });
 
 Hooks.once("ready", async function() { 
+  // safe-guard in case Moulinette Core is not installed
+  if(!game.moulinette) game.moulinette = {}
   if(game.user.isGM && $("#nav-moulinette-toggle").length == 0) {
     $("#ui-top").prepend(`<a id="nav-moulinette-toggle" class="nav-item" role="button" alt="${game.i18n.localize("SCENES.ToggleNav")} (Moulinette)"><i class="fas fa-ellipsis"></i></a><ul id="mouNav" class="folders"/>`);  
     $("#nav-moulinette-toggle").click((ev) => { 
