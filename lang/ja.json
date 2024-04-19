@@ -12,10 +12,10 @@
   "mtte.configTextColor": "文字色",
   "mtte.configTextColorHint": "文字色を設定します。",
   "mtte.configToggleNavigation": "Navigationを起動",
-  "mtte.configToggleNavigationHint": "oulinette Navigation UIを表示／非表示します",
+  "mtte.configToggleNavigationHint": "Moulinette Navigation UIを表示／非表示します",
   "mtte.export2obsidian": "Obsidianへエクスポート",
   "mtte.navigation": "ナビゲーションに表示 (moulinette)",
   "mtte.navigationToolsHelp": "Moulinette Navigationについて",
   "mtte.navigationToolsHelpContent": "ナビゲーションはThe navigation lists all scenes from the selected folder. <ul><li>Click to navigate to the scene.</li><li>SHIFT + click to activate the scene.</li><li>You can set a keybind to quickly toggle the navigation (Under Configure Controls).</li></ul>See <a href=\"https://github.com/SvenWerlen/moulinette-navigation-tools\">Documentation</a> for more information.",
-  "mtte.obsidianExporterDescription": "This utility allows you to export the current world to Obsidian format. Choose below which documents you want to export and the permissions to apply."
+  "mtte.obsidianExporterDescription": "このユーティリティで現在のワールドをObsidian形式でエクスポートできます。This utility allows you to export the current world to Obsidian format. Choose below which documents you want to export and the permissions to apply."
 }
