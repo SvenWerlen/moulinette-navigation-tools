@@ -1,7 +1,7 @@
 {
   "mtte.configBackgroundColor": "背景色",
   "mtte.configBackgroundColorHint": "背景色を指定します。",
-  "mtte.configFlattenStructure": "Flatten the folder structure",
+  "mtte.configFlattenStructure": "フォルダ内構造を一元化",
   "mtte.configFlattenStructureHint": "When this option is enabled and a folder contains only one scene, Moulinette will not display the folder but only the scene to avoid cluttering the tree structure.",
   "mtte.configHideEmptyFolders": "空のフォルダを非表示",
   "mtte.configHideEmptyFoldersHint": "チェックすると、Moulinette MODがシーンを格納していないフォルダーを表示しません",
