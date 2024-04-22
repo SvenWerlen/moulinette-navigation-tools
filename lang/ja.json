@@ -2,13 +2,13 @@
   "mtte.configBackgroundColor": "背景色",
   "mtte.configBackgroundColorHint": "背景色を指定します。",
   "mtte.configFlattenStructure": "フォルダ内構造を一元化",
-  "mtte.configFlattenStructureHint": "When this option is enabled and a folder contains only one scene, Moulinette will not display the folder but only the scene to avoid cluttering the tree structure.",
+  "mtte.configFlattenStructureHint": "このオプションが有効化されており、かつフォルダにシーンが１つしかない時、Moulinetteはツリー構造の散乱防止のためにフォルダを表示せず、そのシーンだけを表示します。",
   "mtte.configHideEmptyFolders": "空のフォルダを非表示",
   "mtte.configHideEmptyFoldersHint": "チェックすると、Moulinette MODがシーンを格納していないフォルダーを表示しません",
   "mtte.configLinkColor": "テキストリンクの色",
   "mtte.configLinkColorHint": "リンクの文字色を指定します。",
-  "mtte.configSceneMergeRegex": "シーンを結合 - 規定のregular expression",
-  "mtte.configSceneMergeRegexHint": "この設定によってシーン名に基づいて結合できます。 シーン名の末尾It's a regular expression representing the pattern used at the end of the scene names. Please refer to the documentation for more details.",
+  "mtte.configSceneMergeRegex": "シーンを結合 - 規定の表記(expression)",
+  "mtte.configSceneMergeRegexHint": "この設定によってシーン名に基づいて結合できます。シーン名の末尾It's a regular expression representing the pattern used at the end of the scene names.。詳細はドキュメントをご覧ください。",
   "mtte.configTextColor": "文字色",
   "mtte.configTextColorHint": "文字色を設定します。",
   "mtte.configToggleNavigation": "Navigationを起動",
@@ -16,6 +16,6 @@
   "mtte.export2obsidian": "Obsidianへエクスポート",
   "mtte.navigation": "ナビゲーションに表示 (moulinette)",
   "mtte.navigationToolsHelp": "Moulinette Navigationについて",
-  "mtte.navigationToolsHelpContent": "ナビゲーションはThe navigation lists all scenes from the selected folder. <ul><li>Click to navigate to the scene.</li><li>SHIFT + click to activate the scene.</li><li>You can set a keybind to quickly toggle the navigation (Under Configure Controls).</li></ul>See <a href=\"https://github.com/SvenWerlen/moulinette-navigation-tools\">Documentation</a> for more information.",
-  "mtte.obsidianExporterDescription": "このユーティリティで現在のワールドをObsidian形式でエクスポートできます。This utility allows you to export the current world to Obsidian format. Choose below which documents you want to export and the permissions to apply."
+  "mtte.navigationToolsHelpContent": "ナビゲーションによって選択したフォルダのすべてのシーンをリスト化します。<ul><li>左クリックしてシーンに移動します。</li><li>SHIFT + 左クリックでシーンを有効化します。</li><li>ナビゲーションをすぐに起動するためにキーバインドできます（操作設定以下）。</li></ul>詳細は、<a href=\"https://github.com/SvenWerlen/moulinette-navigation-tools\">ドキュメント</a>をご覧ください。",
+  "mtte.obsidianExporterDescription": "このユーティリティで現在のワールドをObsidian形式でエクスポートできます。以下からどの資料をエクスポートし、どの権限を与えるか選択してください。"
 }
